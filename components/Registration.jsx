@@ -576,18 +576,18 @@ export default function StudentGala() {
               </div>
 
               <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-                {/* <Image
-                  src="/galawhite4.png"
-                  alt="Gala Logo"
-                  width={800}
-                  height={200}
+                <Image
+                  src="/IDI.png"
+                  alt="IDI Logo"
+                  width={400}
+                  height={100}
                   className="mx-auto w-full max-w-[800px] h-auto"
                   priority
-                /> */}
+                />
 
-                  <h1 className="text-3xl sm:text-5xl font-bold text-gray-100 mb-6">
+                  {/* <h1 className="text-3xl sm:text-5xl font-bold text-gray-100 mb-6">
                     IDI Career Guidance Programme
-                  </h1>
+                  </h1> */}
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <button
