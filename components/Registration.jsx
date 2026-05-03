@@ -400,7 +400,7 @@ export default function StudentGala() {
       ctx.fillText('IDI', 400, 320);
       drawRestOfCard();
     };
-    logo.src = '/galanew.png';
+    logo.src = '/IDI.png';
   };
 
   return (
