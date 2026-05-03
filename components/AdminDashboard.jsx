@@ -299,7 +299,7 @@ export default function AdminDashboard() {
                 ))}
               </select>
 
-              <select
+              {/* <select
                 value={filters.division}
                 onChange={(e) => handleFilterChange('division', e.target.value)}
                 className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -308,7 +308,7 @@ export default function AdminDashboard() {
                 {filterOptions.divisions.map(div => (
                   <option key={div} value={div}>{div}</option>
                 ))}
-              </select>
+              </select> */}
             </div>
 
             <div className="flex flex-wrap gap-3">
@@ -340,7 +340,7 @@ export default function AdminDashboard() {
                     <th className="px-4 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone</th>
                     <th className="hidden md:table-cell px-4 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Class</th>
                     <th className="hidden lg:table-cell px-4 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">School</th>
-                    <th className="hidden xl:table-cell px-4 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Division</th>
+                    {/* <th className="hidden xl:table-cell px-4 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Division</th> */}
                     <th className="px-4 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                     <th className="hidden sm:table-cell px-4 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">DOB</th>
                     <th className="hidden sm:table-cell px-4 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Registered</th>
@@ -383,9 +383,9 @@ export default function AdminDashboard() {
                         <td className="hidden lg:table-cell px-4 lg:px-6 py-4 text-sm text-gray-900 max-w-xs truncate">
                           {student.school || '-'}
                         </td>
-                        <td className="hidden xl:table-cell px-4 lg:px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        {/* <td className="hidden xl:table-cell px-4 lg:px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                           {student.division || '-'}
-                        </td>
+                        </td> */}
                         <td className="px-4 lg:px-6 py-4 whitespace-nowrap">
                           <span className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
                             student.profileCompleted 

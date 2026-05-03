@@ -84,7 +84,7 @@ function Navbar() {
         <NavLink to="/" className={`hover-underline-animation hover:scale-110 duration-150 transition-all ${gradientScroll ? 'after:bg-white' : 'after:bg-primary'}`}>Home</NavLink>
       </div>
 
-      <a href={"https://chat.whatsapp.com/FRZb464Auv7IQsu4sRIM5Z?mode=wwt"} className={`rounded text-white poppins-bold text-xs p-1.5 px-3 lg:block hidden ${gradientScroll ? 'bg-primary border border-white hover:text-white hover:bg-primary hover:border-0' : 'text-white bg-primary'}`}>
+      <a href={"https://chat.whatsapp.com/DFVvdRiSY3PFi0IB4f9tEK?mode=gi_t"} className={`rounded text-white poppins-bold text-xs p-1.5 px-3 lg:block hidden ${gradientScroll ? 'bg-primary border border-white hover:text-white hover:bg-primary hover:border-0' : 'text-white bg-primary'}`}>
         Join Us
       </a>
 

@@ -498,7 +498,7 @@ export default function AdminQRScanner() {
                   ))}
                 </select>
 
-                <select
+                {/* <select
                   value={filters.division}
                   onChange={(e) => handleFilterChange('division', e.target.value)}
                   className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
@@ -507,7 +507,7 @@ export default function AdminQRScanner() {
                   {filterOptions.divisions.map(div => (
                     <option key={div} value={div}>{div}</option>
                   ))}
-                </select>
+                </select> */}
               </div>
 
               <div className="flex gap-3">

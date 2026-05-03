@@ -749,7 +749,7 @@ export default function StudentGala() {
                     <h3 className="text-xl font-bold text-gray-800 mb-3">Join WhatsApp Group</h3>
                     <p className="text-gray-600 mb-4 text-sm">Stay updated with all announcements and event details</p>
                     <a
-                      href="https://chat.whatsapp.com/FRZb464Auv7IQsu4sRIM5Z"
+                      href="https://chat.whatsapp.com/DFVvdRiSY3PFi0IB4f9tEK?mode=gi_t"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full inline-block bg-green-500 text-white py-3 rounded-lg font-medium hover:bg-green-600 transition-colors shadow-lg hover:shadow-xl"
@@ -1097,7 +1097,7 @@ export default function StudentGala() {
 
               {/* WhatsApp Group Join Button */}
               <a
-                href="https://chat.whatsapp.com/FRZb464Auv7IQsu4sRIM5Z"
+                href="https://chat.whatsapp.com/DFVvdRiSY3PFi0IB4f9tEK?mode=gi_t"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-600 transition-colors shadow-lg hover:shadow-xl mb-6"
