@@ -11,7 +11,7 @@ const RESULT_STYLES = {
 
 const formatTime = d => (d ? new Date(d).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '');
 
-export default functionManjeshwar DivisionScanner() {
+export default function AvanzaScanner(){
   const [tab, setTab] = useState('scan');
   const [cameraOn, setCameraOn] = useState(false);
   const [cameraError, setCameraError] = useState('');
