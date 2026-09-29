@@ -86,3 +86,28 @@ export async function POST(request) {
     );
   }
 }
+
+// Delete a registration (e.g. test entries)
+export async function DELETE(request) {
+  if (!isAdmin(request)) return unauthorized();
+  try {
+    await dbConnect();
+
+    const passId = request.nextUrl.searchParams.get('passId');
+    const deleted = passId && await Delegate.findOneAndDelete({ passId });
+    if (!deleted) {
+      return NextResponse.json(
+        { success: false, message: 'Delegate not found' },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json({ success: true, message: 'Deleted' });
+  } catch (error) {
+    console.error('Avanza delete error:', error);
+    return NextResponse.json(
+      { success: false, message: 'Internal server error' },
+      { status: 500 }
+    );
+  }
+}

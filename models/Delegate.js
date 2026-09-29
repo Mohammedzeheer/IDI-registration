@@ -10,6 +10,12 @@ const delegateSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
+  // not schema-required so entries created before this field still save on check-in
+  sector: {
+    type: String,
+    trim: true,
+    default: ''
+  },
   unit: {
     type: String,
     required: true,
@@ -68,6 +74,7 @@ delegateSchema.pre('save', async function (next) {
 export const toPublicDelegate = d => ({
   passId: d.passId,
   name: d.name,
+  sector: d.sector || '',
   unit: d.unit,
   designation: d.designation,
   phone: d.phone,

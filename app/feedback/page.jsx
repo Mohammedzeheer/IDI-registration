@@ -199,7 +199,7 @@ export default function FeedbackPage() {
 
         {/* Footer */}
         <div className="mt-8 text-center text-sm text-gray-500">
-          <p>Thank you for being part of IDI Career Guidance Programme 2026!</p>
+          <p>Thank you for being part of avanza 2026!</p>
         </div>
       </div>
     </div>

@@ -4,7 +4,8 @@ import Image from 'next/image';
 import QRCode from 'qrcode';
 import toast from 'react-hot-toast';
 import { Calendar, MapPin, Download, LogOut, CheckCircle } from 'lucide-react';
-import { DESIGNATIONS } from '../data/avanza';
+import { DESIGNATIONS, SECTORS } from '../data/avanza';
+import fontImage from '../public/fontssf.png';
 
 const STORAGE_KEY = 'avanzaPass';
 
@@ -27,7 +28,7 @@ export default function AvanzaRegistration() {
   const [loading, setLoading] = useState(false);
   const [delegate, setDelegate] = useState(null);
   const [qrUrl, setQrUrl] = useState('');
-  const [form, setForm] = useState({ name: '', unit: '', designation: '', phone: '' });
+  const [form, setForm] = useState({ name: '', sector: '', unit: '', designation: '', phone: '' });
   const [findPhone, setFindPhone] = useState('');
   const passRef = useRef(null);
 
@@ -95,7 +96,7 @@ export default function AvanzaRegistration() {
     try { localStorage.removeItem(STORAGE_KEY); } catch {}
     setDelegate(null);
     setQrUrl('');
-    setForm({ name: '', unit: '', designation: '', phone: '' });
+    setForm({ name: '', sector: '', unit: '', designation: '', phone: '' });
   };
 
   return (
@@ -145,6 +146,7 @@ export default function AvanzaRegistration() {
                 <dl className="mt-4 w-full divide-y divide-gray-100 text-sm">
                   {[
                     ['Name', delegate.name],
+                    ['Sector', delegate.sector],
                     ['Unit', delegate.unit],
                     ['Designation', delegate.designation],
                     ['Mobile', delegate.phone]
@@ -209,6 +211,22 @@ export default function AvanzaRegistration() {
                     placeholder="Your full name"
                     className={inputClass}
                   />
+                </label>
+
+                <label className="flex flex-col gap-1.5">
+                  <span className="text-sm font-medium text-gray-700">Sector</span>
+                  <select
+                    name="sector"
+                    value={form.sector}
+                    onChange={handleChange}
+                    required
+                    className={`${inputClass} ${form.sector ? '' : 'text-gray-400'}`}
+                  >
+                    <option value="" disabled>Select your sector</option>
+                    {SECTORS.map(s => (
+                      <option key={s} value={s} className="text-gray-900">{s}</option>
+                    ))}
+                  </select>
                 </label>
 
                 <label className="flex flex-col gap-1.5">
@@ -301,9 +319,10 @@ export default function AvanzaRegistration() {
           </section>
         )}
 
-        <p className="mt-8 text-center text-xs text-gray-500">
-          <span className="font-bold text-gray-700">SSF Manjeshwar Division</span> · Students Centre, Mountnoor Posoat
-        </p>
+        <div className="mt-8 flex items-center justify-center gap-1.5">
+          <Image src={fontImage} alt="SSF" className="h-auto w-10 shrink-0" />
+          <span className="whitespace-nowrap text-sm font-bold text-gray-700">Manjeshwar Division</span>
+        </div>
       </div>
     </div>
   );

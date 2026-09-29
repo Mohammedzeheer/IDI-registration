@@ -185,7 +185,7 @@ export default function AdminLogin() {
 
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-600">
-            © 2026 IDI Career Guidance programme. All rights reserved.
+            © 2026avanza. All rights reserved.
           </p>
         </div>
       </div>

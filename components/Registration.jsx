@@ -586,7 +586,7 @@ export default function StudentGala() {
                 />
 
                   {/* <h1 className="text-3xl sm:text-5xl font-bold text-gray-100 mb-6">
-                    IDI Career Guidance Programme
+                  Manjeshwar Division
                   </h1> */}
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

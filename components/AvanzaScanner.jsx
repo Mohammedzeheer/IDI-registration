@@ -1,7 +1,7 @@
 'use client';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { BrowserQRCodeReader } from '@zxing/browser';
-import { Camera, CameraOff, CheckCircle, AlertTriangle, XCircle, Search, RefreshCw, LogOut } from 'lucide-react';
+import { Camera, CameraOff, CheckCircle, AlertTriangle, XCircle, Search, RefreshCw, LogOut, LayoutDashboard } from 'lucide-react';
 
 const RESULT_STYLES = {
   ok: { bg: 'bg-green-600', Icon: CheckCircle, title: 'Checked in' },
@@ -11,7 +11,7 @@ const RESULT_STYLES = {
 
 const formatTime = d => (d ? new Date(d).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '');
 
-export default function AvanzaScanner() {
+export default functionManjeshwar DivisionScanner() {
   const [tab, setTab] = useState('scan');
   const [cameraOn, setCameraOn] = useState(false);
   const [cameraError, setCameraError] = useState('');
@@ -114,7 +114,7 @@ export default function AvanzaScanner() {
   const q = search.trim().toLowerCase();
   const list = data.delegates.filter(d =>
     (filter === 'all' || (filter === 'in' ? d.checkedIn : !d.checkedIn)) &&
-    (!q || [d.name, d.unit, d.passId, d.phone, d.designation].some(v => v?.toLowerCase().includes(q)))
+    (!q || [d.name, d.sector, d.unit, d.passId, d.phone, d.designation].some(v => v?.toLowerCase().includes(q)))
   );
 
   const style = result && RESULT_STYLES[result.status];
@@ -131,9 +131,14 @@ export default function AvanzaScanner() {
                 {data.stats.checkedIn} <span className="font-normal opacity-80">/ {data.stats.total} arrived</span>
               </p>
             </div>
-            <button onClick={logout} aria-label="Log out" className="rounded-lg p-2 hover:bg-white/10">
-              <LogOut size={20} />
-            </button>
+            <div className="flex gap-1">
+              <a href="/admin/dashboard" aria-label="Dashboard" className="rounded-lg p-2 hover:bg-white/10">
+                <LayoutDashboard size={20} />
+              </a>
+              <button onClick={logout} aria-label="Log out" className="rounded-lg p-2 hover:bg-white/10">
+                <LogOut size={20} />
+              </button>
+            </div>
           </div>
           <div className="mt-3 grid grid-cols-2 rounded-xl bg-white/15 p-1 text-sm font-semibold">
             {[['scan', 'Scanner'], ['list', 'Delegates']].map(([key, label]) => (
@@ -183,7 +188,7 @@ export default function AvanzaScanner() {
                         <>
                           <p className="truncate text-base font-semibold">{result.delegate.name}</p>
                           <p className="text-sm opacity-90">
-                            {result.delegate.designation} · {result.delegate.unit}
+                            {result.delegate.designation} · {result.delegate.sector ? `${result.delegate.sector} · ` : ''}{result.delegate.unit}
                           </p>
                           <p className="text-xs opacity-80">
                             {result.delegate.passId}
@@ -238,7 +243,7 @@ export default function AvanzaScanner() {
                 <input
                   value={search}
                   onChange={e => setSearch(e.target.value)}
-                  placeholder="Search name, unit, pass…"
+                  placeholder="Search name, sector, unit, pass…"
                   className="w-full rounded-xl border border-gray-300 bg-white py-2.5 pl-9 pr-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-600/30"
                 />
               </div>
@@ -265,7 +270,7 @@ export default function AvanzaScanner() {
                   <div className="min-w-0">
                     <p className="truncate font-semibold">{d.name}</p>
                     <p className="truncate text-xs text-gray-500">
-                      {d.designation} · {d.unit} · {d.passId}
+                      {d.designation} · {d.sector ? `${d.sector} · ` : ''}{d.unit} · {d.passId}
                     </p>
                   </div>
                   {d.checkedIn ? (

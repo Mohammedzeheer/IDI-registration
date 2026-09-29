@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import dbConnect from '../../../../libs/mongoDB';
 import Delegate, { DESIGNATIONS, toPublicDelegate } from '../../../../models/Delegate';
+import { SECTORS } from '../../../../data/avanza';
 
 export async function POST(request) {
   try {
@@ -8,13 +9,20 @@ export async function POST(request) {
 
     const body = await request.json();
     const name = (body.name || '').trim();
+    const sector = (body.sector || '').trim();
     const unit = (body.unit || '').trim();
     const designation = body.designation;
     const phone = (body.phone || '').replace(/\D/g, '').slice(-10);
 
-    if (!name || !unit || !designation || !phone) {
+    if (!name || !sector || !unit || !designation || !phone) {
       return NextResponse.json(
         { success: false, message: 'All fields are required' },
+        { status: 400 }
+      );
+    }
+    if (!SECTORS.includes(sector)) {
+      return NextResponse.json(
+        { success: false, message: 'Invalid sector' },
         { status: 400 }
       );
     }
@@ -39,7 +47,7 @@ export async function POST(request) {
       );
     }
 
-    const delegate = await Delegate.create({ name, unit, designation, phone });
+    const delegate = await Delegate.create({ name, sector, unit, designation, phone });
 
     return NextResponse.json({
       success: true,
