@@ -19,7 +19,7 @@ export default function AdminLogin() {
       try {
         const response = await fetch('/api/admin/verify');
         if (response.ok) {
-          router.push('/admin/dashboard');
+          router.push('/admin/avanza');
         }
       } catch (error) {
         // User not logged in, stay on login page
@@ -56,7 +56,7 @@ export default function AdminLogin() {
         localStorage.setItem('admin_user', JSON.stringify(data.user));
 
         // await new Promise(resolve => setTimeout(resolve, 200));
-        window.location.href = '/admin/dashboard';
+        window.location.href = '/admin/avanza';
       } else {
         setError(data.message || 'Login failed');
       }

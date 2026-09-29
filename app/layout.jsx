@@ -6,8 +6,8 @@ import AppShell from "../components/Appshell";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "IDI Udyawar",
-  description: "Career Guidance programme",
+  title: "Avanza Leaders camp",
+  description: "Avanza Leaders camp",
 };
 
 export default function RootLayout({ children }) {

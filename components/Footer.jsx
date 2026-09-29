@@ -9,15 +9,15 @@ function Footer() {
       {/* Main footer content */}
       <div className='flex justify-between items-center mb-4'>
         <div>
-          {/* <div className='w-11 relative'> 
+          <div className='w-11 relative'> 
             <Image
               src={fontImage}
               alt='ssf'
               className='filter brightness-0 invert w-full h-auto'
               priority={false}
             />
-          </div> */}
-          <h1 className='font-extrabold text-base md:text-lg uppercase text-white'>IDI Udyawar</h1>
+          </div>
+          <h1 className='font-extrabold text-base md:text-lg uppercase text-white'>MANJESHWAR DIVISION</h1>
         </div>
         <div className='flex gap-1 items-center text-white'>
           <a

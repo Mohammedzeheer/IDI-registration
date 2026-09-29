@@ -13,7 +13,7 @@ export default function AppShell({ children }) {
       <main className={isAdminRoute ? "" : ""}>
         {children}
       </main>
-      {!isAdminRoute && <Footer />}
+      {!isAdminRoute && pathname !== '/' && <Footer />}
     </>
   );
 }
