@@ -1,6 +1,7 @@
 'use client';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { BrowserQRCodeReader } from '@zxing/browser';
+import AvanzaFeedbackList from './AvanzaFeedbackList';
 import { Camera, CameraOff, CheckCircle, AlertTriangle, XCircle, Search, RefreshCw, LogOut, LayoutDashboard } from 'lucide-react';
 
 const RESULT_STYLES = {
@@ -140,8 +141,8 @@ export default function AvanzaScanner(){
               </button>
             </div>
           </div>
-          <div className="mt-3 grid grid-cols-2 rounded-xl bg-white/15 p-1 text-sm font-semibold">
-            {[['scan', 'Scanner'], ['list', 'Delegates']].map(([key, label]) => (
+          <div className="mt-3 grid grid-cols-3 rounded-xl bg-white/15 p-1 text-sm font-semibold">
+            {[['scan', 'Scanner'], ['list', 'Delegates'], ['feedback', 'Feedback']].map(([key, label]) => (
               <button
                 key={key}
                 onClick={() => { setTab(key); if (key === 'list') loadList(); }}
@@ -226,6 +227,8 @@ export default function AvanzaScanner(){
               </button>
             </form>
           </main>
+        ) : tab === 'feedback' ? (
+          <AvanzaFeedbackList />
         ) : (
           <main className="flex flex-1 flex-col gap-3 bg-gray-50 p-4 text-gray-900">
             <div className="grid grid-cols-3 gap-2 text-center">

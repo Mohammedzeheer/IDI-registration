@@ -83,4 +83,13 @@ export const toPublicDelegate = d => ({
   createdAt: d.createdAt
 });
 
-export default mongoose.models.Delegate || mongoose.model('Delegate', delegateSchema);
+const Delegate = mongoose.models.Delegate || mongoose.model('Delegate', delegateSchema);
+
+// Find a delegate by pass ID + mobile (both stored with the pass on the device)
+export const findDelegate = (passId, rawPhone) => {
+  const phone = (rawPhone || '').replace(/\D/g, '').slice(-10);
+  if (!passId || !/^\d{10}$/.test(phone)) return null;
+  return Delegate.findOne({ passId: String(passId).trim().toUpperCase(), phone });
+};
+
+export default Delegate;

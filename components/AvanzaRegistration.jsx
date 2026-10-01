@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 import { Calendar, MapPin, Download, LogOut, CheckCircle } from 'lucide-react';
 import { DESIGNATIONS, SECTORS } from '../data/avanza';
 import fontImage from '../public/fontssf.png';
+import AvanzaFeedback from './AvanzaFeedback';
 
 const STORAGE_KEY = 'avanzaPass';
 
@@ -183,6 +184,8 @@ export default function AvanzaRegistration() {
                 <LogOut size={18} /> New entry
               </button>
             </div>
+
+            <AvanzaFeedback delegate={delegate} />
           </section>
         ) : (
           <section className="mt-5 rounded-2xl bg-white p-5 shadow-sm">
